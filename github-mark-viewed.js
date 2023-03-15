@@ -1,12 +1,14 @@
 // ==UserScript==
-// @name         GitHub mark as viewed
-// @namespace    http://tampermonkey.net/
-// @version      0.1
-// @description  marks GitHub PR files as "viewed" when clicking Alt+V
-// @author       Kageetai
-// @match        https://github.com/*/pull/*/files*
-// @icon         https://www.google.com/s2/favicons?sz=64&domain=github.com
-// @grant        none
+// @name        GitHub mark as viewed
+// @namespace   http://tampermonkey.net/
+// @version     0.1
+// @description marks GitHub PR files as "viewed" when clicking Alt+V
+// @author      Kageetai
+// @match       https://github.com/*/pull/*/files*
+// @icon        https://www.google.com/s2/favicons?sz=64&domain=github.com
+// @grant       none
+// @licence     MIT
+// @copyright   2023, Kageetai (https://openuserjs.org/users/Kageetai)
 // ==/UserScript==
 
 (function () {
