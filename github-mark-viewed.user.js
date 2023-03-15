@@ -18,26 +18,23 @@
 (function () {
     'use strict';
 
-    const buttons = document.querySelectorAll('input[value="viewed"]:not(:checked)');
-
-    const intersectionCallback = (entries) => {
+    // IntersectionObserver to detect when a button is visible and add class to it
+    const observer = new IntersectionObserver((entries) =>
         entries.forEach((entry) => {
             const elem = entry.target;
 
-            if (entry.isIntersecting) {
-
-                if (entry.intersectionRatio >= 1) {
-                    elem.classList.add('isVisible');
-                }
+            if (entry.isIntersecting && entry.intersectionRatio >= 1) {
+                elem.classList.add('isVisible');
             } else {
                 elem.classList.remove('isVisible');
             }
-        });
-    };
+        }), {threshold: 1});
 
-    const observer = new IntersectionObserver(intersectionCallback, {threshold: 1});
+    const buttons = document.querySelectorAll('input[value="viewed"]:not(:checked)');
+
     buttons.forEach(button => observer.observe(button));
 
+    // keyboard shortcut event listener
     document.addEventListener('keydown', event => {
         if (event.altKey && event.code === 'KeyV') {
             const e = document.querySelector('input[value="viewed"]:not(:checked).isVisible:first-child');
