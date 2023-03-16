@@ -30,9 +30,12 @@
             }
         }), {threshold: 1});
 
-    const buttons = document.querySelectorAll('input[value="viewed"]:not(:checked)');
+    window.addEventListener('load', function () {
+        document
+            .querySelectorAll('input[value="viewed"]:not(:checked)')
+            .forEach(button => observer.observe(button));
+    })
 
-    buttons.forEach(button => observer.observe(button));
 
     // keyboard shortcut event listener
     document.addEventListener('keydown', event => {
