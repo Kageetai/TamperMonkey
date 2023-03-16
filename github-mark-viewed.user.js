@@ -42,7 +42,7 @@
         if (event.altKey && event.code === 'KeyV') {
             const e = document.querySelector('input[value="viewed"]:not(:checked).isVisible:first-child');
             e.click();
-            e.scrollIntoView(true);
+            e.scrollIntoView({block: "start", behavior: "smooth"});
         }
     });
 })();
