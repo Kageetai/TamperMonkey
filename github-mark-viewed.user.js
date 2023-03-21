@@ -8,7 +8,7 @@
 // @contributionUrl https://github.com/Kageetai/TamperMonkey
 // @supportUrl      https://github.com/Kageetai/TamperMonkey/issues
 // @updateURL       https://openuserjs.org/meta/Kageetai/github-mark-viewed.meta.js
-// @match           https://github.com/*/pull/*/files*
+// @match           https://github.com/*/pull/*/files
 // @icon            https://www.google.com/s2/favicons?sz=64&domain=github.com
 // @grant           none
 // @license         MIT
@@ -19,8 +19,8 @@
     'use strict';
 
     // IntersectionObserver to detect when a button is visible and add class to it
-    const observer = new IntersectionObserver((entries) =>
-        entries.forEach((entry) => {
+    const observer = new IntersectionObserver(function (entries) {
+        return entries.forEach((entry) => {
             const elem = entry.target;
 
             if (entry.isIntersecting && entry.intersectionRatio >= 1) {
@@ -28,17 +28,20 @@
             } else {
                 elem.classList.remove('isVisible');
             }
-        }), {threshold: 1});
+        });
+    }, {threshold: 1});
 
     window.addEventListener('load', function () {
         document
             .querySelectorAll('input[value="viewed"]:not(:checked)')
-            .forEach(button => observer.observe(button));
+            .forEach(function (button) {
+                return observer.observe(button);
+            });
     })
 
 
     // keyboard shortcut event listener
-    document.addEventListener('keydown', event => {
+    document.addEventListener('keydown', function (event) {
         if (event.altKey && event.code === 'KeyV') {
             const e = document.querySelector('input[value="viewed"]:not(:checked).isVisible:first-child');
             e.click();
