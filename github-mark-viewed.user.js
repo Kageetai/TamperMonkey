@@ -20,7 +20,7 @@
 
     // IntersectionObserver to detect when a button is visible and add class to it
     const observer = new IntersectionObserver(function (entries) {
-        return entries.forEach((entry) => {
+        return entries.forEach(function (entry) {
             const elem = entry.target;
 
             if (entry.isIntersecting && entry.intersectionRatio >= 1) {
