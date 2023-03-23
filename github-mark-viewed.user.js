@@ -41,11 +41,12 @@
 
 
     // keyboard shortcut event listener
-    document.addEventListener('keydown', function (event) {
+    document.addEventListener('keyup', function (event) {
         if (event.altKey && event.code === 'KeyV') {
             const e = document.querySelector('input[value="viewed"]:not(:checked).isVisible:first-child');
             e.click();
             e.scrollIntoView({block: "start", behavior: "smooth"});
+            observer.unobserve(e);
         }
     });
 })();
