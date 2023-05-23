@@ -31,22 +31,30 @@
         });
     }, {threshold: 1});
 
-    window.addEventListener('load', function () {
-        document
-            .querySelectorAll('input[value="viewed"]:not(:checked)')
-            .forEach(function (button) {
-                return observer.observe(button);
-            });
-    })
+    const observeButtons = () => {
+        // wait if GitHub is still loading more diffs
+        if (document.querySelector('.diff-progressive-loader') !== null) {
+            setTimeout(observeButtons, 1000);
+        } else {
+            document
+                .querySelectorAll('input[value="viewed"]:not(:checked)')
+                .forEach(button => observer.observe(button));
+        }
+    };
+
+    window.addEventListener('load', observeButtons)
 
 
     // keyboard shortcut event listener
     document.addEventListener('keyup', function (event) {
         if (event.altKey && event.code === 'KeyV') {
             const e = document.querySelector('input[value="viewed"]:not(:checked).isVisible:first-child');
-            e.click();
-            e.scrollIntoView({block: "start", behavior: "smooth"});
-            observer.unobserve(e);
+
+            if (e !== null) {
+                e.click();
+                e.scrollIntoView({block: "start", behavior: "smooth"});
+                observer.unobserve(e);
+            }
         }
     });
 })();
