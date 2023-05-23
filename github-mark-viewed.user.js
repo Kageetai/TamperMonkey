@@ -8,6 +8,7 @@
 // @contributionUrl https://github.com/Kageetai/TamperMonkey
 // @supportUrl      https://github.com/Kageetai/TamperMonkey/issues
 // @updateURL       https://openuserjs.org/meta/Kageetai/github-mark-viewed.meta.js
+// @downloadURL       https://openuserjs.org/meta/Kageetai/github-mark-viewed.meta.js
 // @match           https://github.com/*/pull/*
 // @icon            https://www.google.com/s2/favicons?sz=64&domain=github.com
 // @grant           none
@@ -40,7 +41,7 @@
         }
     };
 
-    window.addEventListener('load', observeButtons)
+    window.addEventListener('load', observeButtons);
 
 
     // keyboard shortcut event listener
