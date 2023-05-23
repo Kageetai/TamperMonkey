@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name            GitHub mark as viewed
 // @namespace       http://tampermonkey.net/
-// @version         1.0.1
+// @version         1.0.2
 // @description     marks GitHub PR files as "viewed" when clicking Alt+V
 // @author          Kageetai
 // @homepageUrl     https://github.com/Kageetai/TamperMonkey
