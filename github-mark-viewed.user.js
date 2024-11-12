@@ -1,15 +1,15 @@
 // ==UserScript==
 // @name            GitHub mark as viewed
 // @namespace       http://tampermonkey.net/
-// @version         1.0.2
+// @version         1.0.3
 // @description     marks GitHub PR files as "viewed" when clicking Alt+V
 // @author          Kageetai
 // @homepageUrl     https://github.com/Kageetai/TamperMonkey
 // @contributionUrl https://github.com/Kageetai/TamperMonkey
 // @supportUrl      https://github.com/Kageetai/TamperMonkey/issues
 // @updateURL       https://openuserjs.org/meta/Kageetai/github-mark-viewed.meta.js
-// @downloadURL       https://openuserjs.org/meta/Kageetai/github-mark-viewed.meta.js
-// @match           https://github.com/*/pull/*
+// @downloadURL     https://openuserjs.org/meta/Kageetai/github-mark-viewed.meta.js
+// @match           https://github.com/*/pull/*/files
 // @icon            https://www.google.com/s2/favicons?sz=64&domain=github.com
 // @grant           none
 // @license         MIT
